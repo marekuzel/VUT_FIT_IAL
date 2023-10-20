@@ -1,0 +1,12 @@
+[test_eval_04] custom test 2
+expression : b*c=
+variables  : b = -2, c = -5
+push=fffffffe
+push=fffffffb
+pop=00fffb
+reconstructed -5
+pop=00ffff
+reconstructed -1
+push=0005
+pop=0005
+reconstructed 5
