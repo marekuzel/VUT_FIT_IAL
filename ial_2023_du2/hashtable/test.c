@@ -2,6 +2,8 @@
 #include "test_util.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <assert.h>
+#include <string.h>
 
 #define INSERT_TEST_DATA(TABLE)                                                \
   ht_insert_many(TABLE, TEST_DATA, sizeof(TEST_DATA) / sizeof(TEST_DATA[0]));
@@ -27,7 +29,8 @@ ENDTEST
 
 TEST(test_search_nonexist, "Search for a non-existing item")
 ht_init(test_table);
-ht_search(test_table, "Ethereum");
+ht_item_t * result = ht_search(test_table, "Ethereum");
+assert(result == NULL);
 ENDTEST
 
 TEST(test_insert_simple, "Insert a new item")
@@ -38,12 +41,15 @@ ENDTEST
 TEST(test_search_exist, "Search for an existing item")
 ht_init(test_table);
 ht_insert(test_table, "Ethereum", 3208.67);
-ht_search(test_table, "Ethereum");
+ht_item_t * result = ht_search(test_table, "Ethereum");
+assert(result != NULL);
+printf ("result key = %s\n", result->key);
+assert(strcmp(result->key, "Ethereum") == 0);
 ENDTEST
 
 TEST(test_insert_many, "Insert many new items")
 ht_init(test_table);
-INSERT_TEST_DATA(test_table)
+INSERT_TEST_DATA(test_table);
 ENDTEST
 
 TEST(test_search_collision, "Search for an item with colliding hash")

@@ -19,6 +19,7 @@
  */
 
 void bst_init(bst_node_t **tree){
+  //initialized tree by pointing root to NULL
   *tree = NULL;
 }
 
@@ -35,10 +36,14 @@ bool bst_search(bst_node_t *tree, char key, int *value) {
   if (tree == NULL) return false; //value was not found
   else {
     if (tree->key == key){
+      //the value was found in root
+      //value is assigned and returns true
       *value = tree->value;
       return true;
     }
+    //if not found and key is smaller than root, recursively call function on left subtree
     else if (key < tree->key)return (bst_search(tree->left, key, value));
+    //otherwise ke is larger, thus trying to find match in right subtree
     else return (bst_search(tree->right, key, value));
     return false;
   }
@@ -55,7 +60,7 @@ bool bst_search(bst_node_t *tree, char key, int *value) {
  * Funkci implementujte rekurzivně bez použití vlastních pomocných funkcí.
  */
 void bst_insert(bst_node_t **tree, char key, int value) {
-  if ((*tree)== NULL){
+  if ((*tree)== NULL){ //if there are no other nodes in the tree (or subtree), we simply initiate one node at the root
     bst_node_t *newNode = (bst_node_t *)malloc(sizeof(bst_node_t));
     if (newNode == NULL) return;
     (*tree) = newNode;
@@ -65,14 +70,14 @@ void bst_insert(bst_node_t **tree, char key, int value) {
     (*tree)->left = NULL;
   }
   else{
-    if ((*tree)->key > key){
+    if ((*tree)->key > key){ //if key of existing node is higher than the one we are inserting, we recursively call insert on right subtree
       bst_insert(&((*tree)->left), key, value);
     }
     else if ((*tree)->key < key){
-      bst_insert(&((*tree)->right), key, value);
+      bst_insert(&((*tree)->right), key, value); //if key is lower, we do the same on left side
     }
     else{
-      (*tree)->value = value;
+      (*tree)->value = value; //we already have this key in our tree, so we rewrite the node value
     }
   }
 }
@@ -91,13 +96,13 @@ void bst_insert(bst_node_t **tree, char key, int value) {
  * Funkci implementujte rekurzivně bez použití vlastních pomocných funkcí.
  */
 void bst_replace_by_rightmost(bst_node_t *target, bst_node_t **tree) {
-  if ((*tree)->right == NULL){
+  if ((*tree)->right == NULL){ //we found the rightmost node
     target->key = (*tree)->key;
-    target->value = (*tree)->value; //TODO: left subtree
+    target->value = (*tree)->value; 
     bst_delete(tree, target->key);
   }
-  else{
-    bst_replace_by_rightmost(target,&((*tree)->right));
+  else{ //we shift by recursivelly calling this function into next right node
+    bst_replace_by_rightmost(target,&((*tree)->right)); 
   }
 
 }
@@ -118,26 +123,26 @@ void bst_replace_by_rightmost(bst_node_t *target, bst_node_t **tree) {
 void bst_delete(bst_node_t **tree, char key) {
   if (tree == NULL || (*tree) == NULL)return; //if the tree is empty
   else{
-    if (key < (*tree)->key){ //first we delete left side of the tree
+    if (key < (*tree)->key){ //if the key we are trying to delete is in left subtree
       bst_delete(&((*tree)->left), key); 
     }
-    else if (key > (*tree)->key){ //then right side
+    else if (key > (*tree)->key){ //or in right subtree
       bst_delete(&((*tree)->right), key);
     } 
     else if (key == (*tree)->key){ //we found desired node
-      if ((*tree)->left == NULL && (*tree)->right == NULL){
+      if ((*tree)->left == NULL && (*tree)->right == NULL){ //if it has neither left nor right subtree, we can simply delete it
         free(*tree);
         *tree = NULL;
       }
-      else if ((*tree)->left != NULL && (*tree)->right != NULL){
+      else if ((*tree)->left != NULL && (*tree)->right != NULL){//we use helper function to replace the node with rightmost node of left subtree
         bst_replace_by_rightmost(*tree, &((*tree)->left));
       }
-      else if ((*tree)->left == NULL){
+      else if ((*tree)->left == NULL){ //if it has only right subtree, we replace it with it
           bst_node_t *tmp = *tree;
           (*tree) = (*tree)->right;
           free(tmp);
       }
-      else{
+      else{ //if it has only left subtree, we replace it with it
           bst_node_t *tmp = *tree;
           (*tree) = (*tree)->left;
           free(tmp);
@@ -155,8 +160,8 @@ void bst_delete(bst_node_t **tree, char key) {
  * 
  * Funkci implementujte rekurzivně bez použití vlastních pomocných funkcí.
  */
-void bst_dispose(bst_node_t **tree) { //TODO: fix this mess
-
+void bst_dispose(bst_node_t **tree) {
+  //we use postorder algorithm and recursivelly call dispose first on subtrees and then on a node itself
   if ((*tree) != NULL){
       bst_dispose(&((*tree)->left));
       bst_dispose(&((*tree)->right));
@@ -174,6 +179,7 @@ void bst_dispose(bst_node_t **tree) { //TODO: fix this mess
  */
 void bst_preorder(bst_node_t *tree, bst_items_t *items) {
   if (tree != NULL){
+    //we add the node to items, and afterwards call preorder on left and right subtree
     bst_add_node_to_items(tree, items);
     bst_preorder(tree->left, items);
     bst_preorder(tree->right, items);
@@ -189,6 +195,7 @@ void bst_preorder(bst_node_t *tree, bst_items_t *items) {
  */
 void bst_inorder(bst_node_t *tree, bst_items_t *items) {
   if (tree != NULL){
+    //similarly to other recusive traversal functions, we call inorder on left subtree,then add the node to items and then call inorder on right subtree
     bst_inorder(tree->left, items);
     bst_add_node_to_items(tree, items);
     bst_inorder(tree->right, items);
@@ -204,6 +211,7 @@ void bst_inorder(bst_node_t *tree, bst_items_t *items) {
  */
 void bst_postorder(bst_node_t *tree, bst_items_t *items) {
     if (tree != NULL){
+      //we call postorder on left and right subtree and then add the node to items
       bst_postorder(tree->left, items);
       bst_postorder(tree->right, items);
       bst_add_node_to_items(tree, items);

@@ -16,6 +16,7 @@ Binary tree structure:
 
   +-[H,1]
 
+test
 
 [test_tree_search_root] Search in a single node tree (H)
 Binary tree structure:
@@ -244,7 +245,6 @@ Binary tree structure:
            |
            +-[A,1]
 
-test1
 Binary tree structure:
 
                     +-[Y,10]
@@ -262,3 +262,463 @@ Binary tree structure:
         +-[N,14]
         |  |
         |  +-[M,13]
+        |
+     +-[L,12]
+     |  |
+     |  |  +-[K,11]
+     |  |  |
+     |  +-[J,10]
+     |     |
+     |     +-[I,9]
+     |
+  +-[H,8]
+     |
+     |     +-[G,7]
+     |     |
+     |  +-[F,6]
+     |  |  |
+     |  |  +-[E,5]
+     |  |
+     +-[D,4]
+        |
+        |  +-[C,3]
+        |  |
+        +-[B,2]
+           |
+           +-[A,1]
+
+
+[test_tree_delete_right_subtree] Delete a node with only right subtree (X)
+Binary tree structure:
+
+                    +-[Y,10]
+                    |
+                 +-[X,10]
+                 |
+              +-[S,10]
+              |  |
+              |  +-[R,10]
+              |     |
+              |     +-[Q,10]
+              |        |
+              |        +-[P,10]
+              |
+           +-[O,16]
+           |
+        +-[N,14]
+        |  |
+        |  +-[M,13]
+        |
+     +-[L,12]
+     |  |
+     |  |  +-[K,11]
+     |  |  |
+     |  +-[J,10]
+     |     |
+     |     +-[I,9]
+     |
+  +-[H,8]
+     |
+     |     +-[G,7]
+     |     |
+     |  +-[F,6]
+     |  |  |
+     |  |  +-[E,5]
+     |  |
+     +-[D,4]
+        |
+        |  +-[C,3]
+        |  |
+        +-[B,2]
+           |
+           +-[A,1]
+
+Binary tree structure:
+
+                 +-[Y,10]
+                 |
+              +-[S,10]
+              |  |
+              |  +-[R,10]
+              |     |
+              |     +-[Q,10]
+              |        |
+              |        +-[P,10]
+              |
+           +-[O,16]
+           |
+        +-[N,14]
+        |  |
+        |  +-[M,13]
+        |
+     +-[L,12]
+     |  |
+     |  |  +-[K,11]
+     |  |  |
+     |  +-[J,10]
+     |     |
+     |     +-[I,9]
+     |
+  +-[H,8]
+     |
+     |     +-[G,7]
+     |     |
+     |  +-[F,6]
+     |  |  |
+     |  |  +-[E,5]
+     |  |
+     +-[D,4]
+        |
+        |  +-[C,3]
+        |  |
+        +-[B,2]
+           |
+           +-[A,1]
+
+
+[test_tree_delete_both_subtrees] Delete a node with both subtrees (L)
+Binary tree structure:
+
+                    +-[Y,10]
+                    |
+                 +-[X,10]
+                 |
+              +-[S,10]
+              |  |
+              |  +-[R,10]
+              |     |
+              |     +-[Q,10]
+              |        |
+              |        +-[P,10]
+              |
+           +-[O,16]
+           |
+        +-[N,14]
+        |  |
+        |  +-[M,13]
+        |
+     +-[L,12]
+     |  |
+     |  |  +-[K,11]
+     |  |  |
+     |  +-[J,10]
+     |     |
+     |     +-[I,9]
+     |
+  +-[H,8]
+     |
+     |     +-[G,7]
+     |     |
+     |  +-[F,6]
+     |  |  |
+     |  |  +-[E,5]
+     |  |
+     +-[D,4]
+        |
+        |  +-[C,3]
+        |  |
+        +-[B,2]
+           |
+           +-[A,1]
+
+Binary tree structure:
+
+                    +-[Y,10]
+                    |
+                 +-[X,10]
+                 |
+              +-[S,10]
+              |  |
+              |  +-[R,10]
+              |     |
+              |     +-[Q,10]
+              |        |
+              |        +-[P,10]
+              |
+           +-[O,16]
+           |
+        +-[N,14]
+        |  |
+        |  +-[M,13]
+        |
+     +-[K,11]
+     |  |
+     |  +-[J,10]
+     |     |
+     |     +-[I,9]
+     |
+  +-[H,8]
+     |
+     |     +-[G,7]
+     |     |
+     |  +-[F,6]
+     |  |  |
+     |  |  +-[E,5]
+     |  |
+     +-[D,4]
+        |
+        |  +-[C,3]
+        |  |
+        +-[B,2]
+           |
+           +-[A,1]
+
+Binary tree structure:
+
+                    +-[Y,10]
+                    |
+                 +-[X,10]
+                 |
+              +-[S,10]
+              |  |
+              |  +-[R,10]
+              |     |
+              |     +-[Q,10]
+              |        |
+              |        +-[P,10]
+              |
+           +-[O,16]
+           |
+        +-[N,14]
+        |  |
+        |  +-[M,13]
+        |
+     +-[K,11]
+     |  |
+     |  +-[J,10]
+     |     |
+     |     +-[I,9]
+     |
+  +-[H,8]
+     |
+     |     +-[G,7]
+     |     |
+     |  +-[F,6]
+     |  |  |
+     |  |  +-[E,5]
+     |  |
+     +-[D,4]
+        |
+        |  +-[C,3]
+        |  |
+        +-[B,2]
+           |
+           +-[A,1]
+
+
+[test_tree_delete_missing] Delete a node that doesn't exist (U)
+Binary tree structure:
+
+           +-[O,16]
+           |
+        +-[N,14]
+        |  |
+        |  +-[M,13]
+        |
+     +-[L,12]
+     |  |
+     |  |  +-[K,11]
+     |  |  |
+     |  +-[J,10]
+     |     |
+     |     +-[I,9]
+     |
+  +-[H,8]
+     |
+     |     +-[G,7]
+     |     |
+     |  +-[F,6]
+     |  |  |
+     |  |  +-[E,5]
+     |  |
+     +-[D,4]
+        |
+        |  +-[C,3]
+        |  |
+        +-[B,2]
+           |
+           +-[A,1]
+
+Binary tree structure:
+
+           +-[O,16]
+           |
+        +-[N,14]
+        |  |
+        |  +-[M,13]
+        |
+     +-[L,12]
+     |  |
+     |  |  +-[K,11]
+     |  |  |
+     |  +-[J,10]
+     |     |
+     |     +-[I,9]
+     |
+  +-[H,8]
+     |
+     |     +-[G,7]
+     |     |
+     |  +-[F,6]
+     |  |  |
+     |  |  +-[E,5]
+     |  |
+     +-[D,4]
+        |
+        |  +-[C,3]
+        |  |
+        +-[B,2]
+           |
+           +-[A,1]
+
+
+[test_tree_delete_root] Delete the root node (H)
+Binary tree structure:
+
+           +-[O,16]
+           |
+        +-[N,14]
+        |  |
+        |  +-[M,13]
+        |
+     +-[L,12]
+     |  |
+     |  |  +-[K,11]
+     |  |  |
+     |  +-[J,10]
+     |     |
+     |     +-[I,9]
+     |
+  +-[H,8]
+     |
+     |     +-[G,7]
+     |     |
+     |  +-[F,6]
+     |  |  |
+     |  |  +-[E,5]
+     |  |
+     +-[D,4]
+        |
+        |  +-[C,3]
+        |  |
+        +-[B,2]
+           |
+           +-[A,1]
+
+Binary tree structure:
+
+           +-[O,16]
+           |
+        +-[N,14]
+        |  |
+        |  +-[M,13]
+        |
+     +-[L,12]
+     |  |
+     |  |  +-[K,11]
+     |  |  |
+     |  +-[J,10]
+     |     |
+     |     +-[I,9]
+     |
+  +-[G,7]
+     |
+     |  +-[F,6]
+     |  |  |
+     |  |  +-[E,5]
+     |  |
+     +-[D,4]
+        |
+        |  +-[C,3]
+        |  |
+        +-[B,2]
+           |
+           +-[A,1]
+
+
+[test_tree_dispose_filled] Dispose the whole tree
+Binary tree structure:
+
+           +-[O,16]
+           |
+        +-[N,14]
+        |  |
+        |  +-[M,13]
+        |
+     +-[L,12]
+     |  |
+     |  |  +-[K,11]
+     |  |  |
+     |  +-[J,10]
+     |     |
+     |     +-[I,9]
+     |
+  +-[H,8]
+     |
+     |     +-[G,7]
+     |     |
+     |  +-[F,6]
+     |  |  |
+     |  |  +-[E,5]
+     |  |
+     +-[D,4]
+        |
+        |  +-[C,3]
+        |  |
+        +-[B,2]
+           |
+           +-[A,1]
+
+Binary tree structure:
+
+Tree is empty
+
+
+[test_tree_preorder] Traverse the tree using preorder
+Binary tree structure:
+
+     +-[E,5]
+     |
+  +-[D,1]
+     |
+     |  +-[C,4]
+     |  |
+     +-[B,2]
+        |
+        +-[A,3]
+
+Traversed items:
+[D,1][B,2][A,3][C,4][E,5]
+
+[test_tree_inorder] Traverse the tree using inorder
+Binary tree structure:
+
+     +-[E,5]
+     |
+  +-[D,1]
+     |
+     |  +-[C,4]
+     |  |
+     +-[B,2]
+        |
+        +-[A,3]
+
+Traversed items:
+[A,3][B,2][C,4][D,1][E,5]
+
+[test_tree_postorder] Traverse the tree using postorder
+Binary tree structure:
+
+     +-[E,5]
+     |
+  +-[D,1]
+     |
+     |  +-[C,4]
+     |  |
+     +-[B,2]
+        |
+        +-[A,3]
+
+Traversed items:
+[A,3][C,4][B,2][E,5][D,1]
+
